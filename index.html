@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PES 2021 – Torneo Eliminación Directa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== SETUP SCREEN ===== -->
+  <div id="screen-setup" class="screen active">
+    <header>
+      <img src="https://i.imgur.com/8QZj5Vb.png" alt="PES 2021" class="logo" onerror="this.style.display='none'" />
+      <h1>🏆 Torneo PES 2021</h1>
+      <p class="subtitle">Eliminación Directa</p>
+    </header>
+
+    <section class="setup-card">
+      <h2>Agregar Participante</h2>
+      <div class="input-row">
+        <input id="input-player" type="text" placeholder="Nombre del jugador" maxlength="30" autocomplete="off" />
+        <input id="input-team"   type="text" placeholder="Equipo en PES 2021" maxlength="40" autocomplete="off" />
+        <button id="btn-add" onclick="addPlayer()">➕ Agregar</button>
+      </div>
+      <p id="msg-error" class="msg-error hidden"></p>
+
+      <div id="players-list" class="players-list"></div>
+
+      <div class="setup-footer">
+        <span id="player-count" class="player-count">0 participantes</span>
+        <button id="btn-start" class="btn-primary" onclick="startTournament()" disabled>
+          🎲 Sortear y Generar Llaves
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== BRACKET SCREEN ===== -->
+  <div id="screen-bracket" class="screen">
+    <header>
+      <h1>🏆 Torneo PES 2021</h1>
+      <div class="bracket-controls">
+        <button class="btn-secondary" onclick="goToSetup()">← Nuevo Torneo</button>
+        <button class="btn-secondary" onclick="reshuffleDraw()" id="btn-reshuffle">🔀 Re-sortear</button>
+      </div>
+    </header>
+
+    <div id="tournament-name" class="tournament-name"></div>
+    <div id="bracket-container" class="bracket-container"></div>
+
+    <div id="champion-banner" class="champion-banner hidden">
+      <div class="champion-content">
+        <div class="trophy-icon">🏆</div>
+        <h2>¡CAMPEÓN!</h2>
+        <div id="champion-name" class="champion-name"></div>
+        <div id="champion-team" class="champion-team"></div>
+        <button class="btn-primary" onclick="goToSetup()">Nuevo Torneo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
